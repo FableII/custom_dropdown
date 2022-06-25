@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+html body {
+    display: grid;
+    background: rgb(210, 229, 229);
+}
+
+
+.box {
+    margin-top: 200px;
+    margin-left: 500px;
+    padding: 50px;
+}
+
+.select-box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+}
+
+.option-container {
+    background: white;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;  
+    order: 1;
+    color: rgb(56, 52, 52);
+    opacity: 0;
+}
+
+.search-box {
+    opacity: 0;
+}
+
+
+.option, .selected {
+    padding: 12px 24px;
+    cursor: pointer; 
+}
+
+
+.select-box .option .radio {
+    display: none;
+}
+
+.selected {
+    background: white;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    color: rgb(56, 52, 52);
+    position: relative;
+    order: 0;
+}
+
+.selected::after{
+    content: '\f106';
+    position: absolute;
+    right: 20px;
+    font-family: 'Font Awesome 5 free';
+    font-weight: 700;
+    color: black;
+    transform: rotate(180deg);
+    transition: all 0.4s;
+}
+
+.select-box .option:hover {
+    background: rgb(180, 214, 214);
+    border-radius: 5px;
+    color: rgb(45, 159, 121);
+}
+
+
+.select-box input {
+    width: 100%;
+    padding: 16px 16px;
+    position: absolute;
+    z-index: 100;
+    border: none;
+    font-size: 16px;
+    outline: 2px solid hsl(240deg 7% 62%);
+    outline-offset: -10px;
+}
+
+#option1 {
+    margin-top: 45px;
+}
+
+.active {
+    opacity: 1;
+    max-height: 200px;
+    overflow-y: scroll;
+    transition: 0.4s;
+}
+
+.active ~ .selected::after {
+    transform: rotateY(180deg);
+}
+
+.active ~ .search-box {
+   opacity: 1;
+   transition: 0.4s;
+}
+
+.option-container::-webkit-scrollbar {
+    background-color: gray;
+    width: 7px;
+    border-radius: 8px;
+}
+
+.option-container::-webkit-scrollbar-thumb{
+    background-color: rgb(58, 57, 57);
+    border-radius: 8px;
+}
+
